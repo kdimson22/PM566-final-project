@@ -13,7 +13,7 @@ This is my PM 566 Final Project website! Set up from lab 12.
 source("process_COVID_data.R")
 
 install.packages('dplyr')
-library(dplyr)
+install.packages('plotly')
 ```
 
 ```{r setup, message=FALSE, echo=FALSE, warning=FALSE}
@@ -24,6 +24,7 @@ library(plotly)
 library(DT)
 library(knitr)
 ```
+
 ```{r}
 # Initialize code chunk options
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
@@ -39,6 +40,8 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
 
 ```{r}
 source("process_COVID_data.R")
+cv_states %>% mutate(naive_CFR = round((deaths * 100 / cases), 2))
+
 p1_scatter <- cv_states_today %>% 
   plot_ly(x = ~pop_density, y = ~deathsper100k,
           type = 'scatter', mode = 'markers', color = ~state,
