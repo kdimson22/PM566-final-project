@@ -1,7 +1,10 @@
 ---
-title: "My R Markdown Website"
+title: "PM566 Final Project"
 author: Kendall Dimson
-output: html_document
+output: 
+  html_document:
+      toc: TRUE
+      toc_float: TRUE
 ---
 
-
+This is my PM 566 Final Project website! Set up from lab 12.
